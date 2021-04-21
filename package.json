@@ -8,5 +8,9 @@
     "packages": [
       "projects/*"
     ]
+  },
+  "scripts": {
+    "site": "yarn workspace @guijun13/website",
+    "site:dev": "yarn site dev"
   }
 }
