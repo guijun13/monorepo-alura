@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Button from '@guijun13/common-modules/components/Button';
+import Button from '@guijun13/ui/src/components/Button';
 
 const Title = styled.h1`
   color: orange;
@@ -9,7 +9,8 @@ const Title = styled.h1`
 export default function Home() {
   return (
     <>
-      <Button>Clique aqui</Button>
+      <Button />
+      {/* <Button>Clique aqui</Button> */}
       <Title>Hello world!</Title>
     </>
   );
