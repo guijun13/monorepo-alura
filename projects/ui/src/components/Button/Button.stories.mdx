@@ -1,0 +1,24 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import Button from './index';
+
+<Meta title="Components/Commons/Button" />
+
+# Botao
+
+Aqui voce pode customizar o button
+
+## Botao simples
+
+<Canvas>
+  <Story name="Botao simples" args={{ children: 'Botao simples' }}>
+    {(args) => <Button {...args} />}
+  </Story>
+</Canvas>
+
+## Botao desabilitado
+
+<Canvas>
+  <Story name="Botao desabilitado" args={{ children: 'Botao desabilitado', disabled: true }}>
+    {(args) => <Button {...args} />}
+  </Story>
+</Canvas>
