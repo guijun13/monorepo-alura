@@ -19,7 +19,8 @@ const ButtonWrapper = styled.button`
   }
 `;
 interface ButtonProps {
-  color: string;
+  type?: 'button' | 'submit' | 'reset';
+  color: 'primary.main' | 'secondary.main' | 'tertiary.main';
   /**
    * Essa prop usa o disabled padrao do HTML
    */
@@ -28,15 +29,22 @@ interface ButtonProps {
    * Passa o que renderizar dentro do botão
    */
   children: React.ReactNode;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 // Button.propTypes = {
 //   disabled: PropTypes.bool,
 //   children: PropTypes.node.isRequired,
 // }
 
-export default function Button({ disabled, children, color }: ButtonProps) {
+export default function Button({
+  type,
+  disabled,
+  children,
+  color,
+  onClick,
+}: ButtonProps): JSX.Element {
   return (
-    <ButtonWrapper disabled={disabled} color={color}>
+    <ButtonWrapper type={type} disabled={disabled} color={color} onClick={onClick}>
       {children}
     </ButtonWrapper>
   );
