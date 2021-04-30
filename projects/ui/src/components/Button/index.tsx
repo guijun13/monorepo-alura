@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import get from 'lodash/get';
 
 const ButtonWrapper = styled.button`
   border: 0;
@@ -9,8 +10,8 @@ const ButtonWrapper = styled.button`
   opacity: 1;
   border-radius: 8px;
 
-  color: ${({ theme }) => theme.colors.primary.main.contrastText};
-  background: ${({ theme }) => theme.colors.primary.main.color};
+  color: ${({ theme, color }) => get(theme, `colors.${color}.contrastText`)};
+  background: ${({ theme, color }) => get(theme, `colors.${color}.color`)};
 
   &:disabled {
     cursor: pointer;
@@ -18,6 +19,7 @@ const ButtonWrapper = styled.button`
   }
 `;
 interface ButtonProps {
+  color: string;
   /**
    * Essa prop usa o disabled padrao do HTML
    */
@@ -32,10 +34,15 @@ interface ButtonProps {
 //   children: PropTypes.node.isRequired,
 // }
 
-export default function Button({ disabled, children }: ButtonProps) {
-  return <ButtonWrapper disabled={disabled}>{children}</ButtonWrapper>;
+export default function Button({ disabled, children, color }: ButtonProps) {
+  return (
+    <ButtonWrapper disabled={disabled} color={color}>
+      {children}
+    </ButtonWrapper>
+  );
 }
 
 Button.defaultProps = {
   disabled: false,
+  color: 'primary.main',
 };
